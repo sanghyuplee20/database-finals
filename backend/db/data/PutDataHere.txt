@@ -1,0 +1,9 @@
+1. Visit the [MovieLens 20M dataset](https://www.kaggle.com/grouplens/movielens-20m-dataset).
+2. Download and extract the dataset.
+3. Place the following CSV files into the `db/data` directory:
+   - `genome_scores.csv`
+   - `genome_tags.csv`
+   - `link.csv`
+   - `movie.csv`
+   - `rating.csv`
+   - `tag.csv`
