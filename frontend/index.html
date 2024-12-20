@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movie Recommendation System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Movie Recommendation System</h1>
+
+    <div class="tab-container">
+        <div class="tab-buttons">
+            <button class="tab-button active" data-tab="search">Search Movies</button>
+            <button class="tab-button" data-tab="top-rated">Top Rated</button>
+            <button class="tab-button" data-tab="top-year">Top Movies Per Year</button>
+            <button class="tab-button" data-tab="similar-movies">Similar Movies</button>
+            <button class="tab-button" data-tab="month-top-movies">Top Movies Per Month</button>
+            <button class="tab-button" data-tab="recommend-genres">Recommend Movie</button>
+        </div>
+
+        <div id="search-tab" class="tab-content active">
+            <div class="search-container">
+                <input type="text" id="movie-search" placeholder="Search by movie title..." />
+                <button id="search-button">Search</button>
+            </div>
+            <div id="search-results" class="results-container"></div>
+        </div>
+
+        <div id="top-rated-tab" class="tab-content">
+            <div class="filter-container">
+                <select id="genre-filter">
+                    <option value="">All Genres</option>
+                    <option value="Action">Action</option>
+                    <option value="Comedy">Comedy</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                </select>
+                <input type="number" id="min-ratings" placeholder="Minimum rating" value="100" />
+                <button id="apply-filters">Apply Filters</button>
+            </div>
+            <div id="top-rated-results" class="results-container"></div>
+        </div>
+
+        <div id="top-year-tab" class="tab-content">
+            <div class="filter-container">
+                <input type="number" id="start-year-filter" placeholder="Start year (e.g., 2000)" />
+                <input type="number" id="end-year-filter" placeholder="End year (e.g., 2023)" />
+                <button id="apply-year-range-filters">Apply Filters</button>
+            </div>
+            <div id="top-year-results" class="results-container"></div>
+        </div>
+
+        <div id="similar-movies-tab" class="tab-content">
+            <div class="search-container">
+                <input type="text" id="base-movie-search" placeholder="Enter base movie title..." />
+                <div class="rating-selector">
+                    <span class="star" data-rating="1">★</span>
+                    <span class="star" data-rating="2">★</span>
+                    <span class="star" data-rating="3">★</span>
+                    <span class="star" data-rating="4">★</span>
+                    <span class="star" data-rating="5">★</span>
+                </div>
+                <button id="find-similar">Find Similar Movies</button>
+            </div>
+            <div id="similar-results" class="results-container"></div>
+        </div>
+
+        <div id="month-top-movies-tab" class="tab-content">
+            <div class="filter-container">
+                <select id="month-filter">
+                    <option value="">Select Month</option>
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+                <button id="apply-month-filters">Apply Filters</button>
+            </div>
+            <div id="month-top-results" class="results-container"></div>
+        </div>
+
+        <div id="recommend-genres-tab" class="tab-content">
+            <div class="filter-container">
+                <h3>Select Genres:</h3>
+                <div id="genres-container">
+                    <label><input type="checkbox" value="Action"> Action</label>
+                    <label><input type="checkbox" value="Comedy"> Comedy</label>
+                    <label><input type="checkbox" value="Drama"> Drama</label>
+                    <label><input type="checkbox" value="Horror"> Horror</label>
+                    <label><input type="checkbox" value="Sci-Fi"> Sci-Fi</label>
+                    <label><input type="checkbox" value="Romance"> Romance</label>
+                    <label><input type="checkbox" value="Adventure"> Adventure</label>
+                    <label><input type="checkbox" value="Fantasy"> Fantasy</label>
+                </div>
+                <button id="recommend-genres-button">Get Recommendations</button>
+            </div>
+            <div id="recommend-genres-results" class="results-container"></div>
+        </div>
+        
+        
+
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" style="display: none;">
+        <div class="spinner"></div>
+    </div>
+
+    <div id="movie-details" class="results-container"></div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
